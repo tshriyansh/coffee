@@ -1,0 +1,177 @@
+<template data-sly-template.wrapper="${@ imgClass, sectionClass, divClass, headerClass, preTitle, preCopyClass, copyClass, postCopyClass, imgWrapperClass, wrapperClass, materialWrapperClass, materialHeaderClass, materialIconClass, divClassContainer}">
+<sly data-sly-use.userInfo="com.atsource.core.internal.models.v1.UserInfoModel"/>
+<sly data-sly-use.heromodel="com.atsource.core.internal.models.v1.HeroBannerModal">
+<sly data-sly-test="${properties.variation != 'type7' && (userInfo.cookieValue != 'ofi' || !heromodel.isImpactPage)}">
+<section class="${sectionClass}">
+    <div class="container-fluid">
+        <a style="display:none" id="backbutton" class="text-link text-link--arrow-left button--dark-violet mt-3 font-weight-bold" href="${properties.buttonLinkURL}.html">${properties.backButtonTitle}</a>
+      <div class="row">
+	  <sly data-sly-test="${properties.variation != 'type6'}">
+        <sly data-sly-test="${properties.linkTitle}">
+          <a href="${heromodel.resolvedLinkUrl}" class="text-link text-link--arrow-left button--dark-violet mt-3 font-weight-bold">${properties.linkTitle}</a>
+        </sly>
+        <div class="${divClass}">
+        <sly data-sly-test="${preTitle && properties.preTitlePart1}">
+          <p class="hero__tagline">
+            <span class="text--color-light-blue">${properties.preTitlePart1 @context='html'}</span>
+            <span class="text--color-green">${properties.preTitlePart2 @context='html'}</span>
+          </p>
+        </sly>
+		<sly data-sly-test="${properties.variation == 'type5' && properties.bannerImage}">
+		 <img class="${imgClass}" src="${properties.bannerImage}" align="right">
+		</sly>
+          <h1 class="${headerClass}">${properties.bannerTitlePart1 @context='html'}<sly data-sly-test="${properties.bannerTitlePart2}"><span class="text--color-light-blue">
+		  <sly data-sly-test="${properties.variation != 'type5' && properties.bannerTitlePart2}"> <br> </sly>
+		  ${properties.bannerTitlePart2 @context='html'}</span></sly>
+          </h1>
+          <sly data-sly-test="${preCopyClass && properties.preCopy}">
+                <sly data-sly-test="${properties.variation != 'type5'  && properties.preCopy}">
+            		<p class="${preCopyClass}">${properties.preCopy @context='html'}</p>
+                </sly>
+                <sly data-sly-test="${properties.variation == 'type5' && properties.preCopy}">
+               	 	<p> <strong>${properties.preCopy @context='html'} </strong></p>
+                </sly>
+           </sly>
+           <sly data-sly-test="${copyClass && properties.copy}">
+          	 	<p class="text--size-l font-weight-light mb-2">${properties.copy @context='html'} </p>
+            </sly>
+            <sly data-sly-test="${postCopyClass && properties.postCopy}">
+            	<p>${properties.postCopy @context='html'}</p>
+            </sly>
+			 <div class="buttonsizing">
+				<div class="blue-download-doc bluebr-downloadcontainer">
+				  <div data-sly-resource="${@path='downloadherobanner', resourceType='/apps/atsource/components/content/downloadcomponent/v1/downloadcomponent'}" ></div>
+				</div>
+			 </div>
+             <sly data-sly-test="${'impact' in currentPage.path}">
+                
+         <div id="impact-story-toggle" class="toggle-hide toggle">
+          <div class="pb-2">
+            <span class="toggle-title pl-0">Choose your Interests</span>
+          </div>
+          <span class="pl-0 right-left-labels">IMPACT STORIES</span>
+          <label class="toggle__switch">
+            <input id="unitToggle" type="checkbox" onclick="onToggle()" [checked]="true"/>
+            <span class="handle"></span>
+          </label>
+          <span class="right-left-labels">News & Views</span>
+        </div>
+        </sly>
+        </div>
+		 <sly data-sly-test="${properties.variation != 'type5' && properties.variation != 'type6'}">
+			<div class="${imgClass}">
+			  <img src="${properties.bannerImage}">
+			</div>
+		</sly>
+		</sly>
+		<sly data-sly-test="${properties.variation == 'type6'}">
+		<sly data-sly-test="${properties.linkTitle}">
+          <a href="${heromodel.resolvedLinkUrl}" class="text-link text-link--arrow-left button--dark-violet mt-3 font-weight-bold  type6-backLink">${properties.linkTitle}</a>
+        </sly>
+			<div class="${divClass} space-sustain">
+				<div class="${imgWrapperClass}">               
+					  <div class="${wrapperClass}">
+						<img alt="hero banner" class="hero-img" src="${properties.bannerImage}"  align="right">
+					  </div>
+					<div class="${materialWrapperClass}">
+					  <div class="${materialHeaderClass}">
+						  <img alt="hero banner" src="${properties.goalsImage}">
+					  </div>
+					  <div class="${materialIconClass}">
+						  <sly data-sly-list.thumbnail="${heromodel.sectioniconmultifield.listChildren}">
+							  <img alt="icon" src="${thumbnail.icon}" >
+						  </sly>
+					  </div>
+					  <div class="clearfix"></div>
+					</div>             
+				</div>
+				<sly data-sly-test="${properties.bannerTitlePart1}">
+					<h1>${properties.bannerTitlePart1 @context='html'}</h1>
+				</sly>
+				<sly data-sly-test="${properties.bannerTitlePart2}">
+					<h2>${properties.bannerTitlePart2 @context='html'}</h2>
+				</sly>
+				<sly data-sly-test="${properties.preCopy}">
+					<p> <strong>${properties.preCopy @context='html'} </strong></p>
+				</sly>
+				<sly data-sly-test="${properties.postCopy}">
+					<p>${properties.postCopy @context='html'}</p>     
+				</sly>
+				<div class="buttonsizing">
+				<div class="blue-download-doc bluebr-downloadcontainer">
+				  <div data-sly-resource="${@path='downloadherobanner', resourceType='/apps/atsource/components/content/downloadcomponent/v1/downloadcomponent'}" ></div>
+				</div>
+			 </div>				
+			</div>
+		</sly>
+      </div>  
+    </div>
+</section>
+</sly>
+<sly data-sly-test="${properties.variation == 'type7' && userInfo.cookieValue != 'ofi' }">
+        <!-- <div [innerHTML]="comingSoonHTML"></div> -->
+        <sly data-sly-test="${properties.isInfinityLogin}">
+        	<section class="${sectionClass} infinity" id="infinity-login-banner">
+          </sly>
+          <sly data-sly-test="${!properties.isInfinityLogin}">
+        	<section class="${sectionClass}">
+          </sly>
+		  <div class="${imgClass}">
+            <img src="${properties.bannerImage}">
+          </div>
+		  <div class="${divClassContainer}">
+			  <h1 class="${headerClass}">${properties.bannerTitlePart1 @context='html'}<span>${properties.bannerTitlePart2 @context='html'}</span></h1>
+			  <div class="${preCopyClass}">${properties.preCopy @context='html'} </div>
+			  <div class="${copyClass}">${properties.copy @context='html'}</div>
+          </div>
+             <sly data-sly-test="${properties.isInfinityLogin}">
+                <div class="pinkbg-whitebr-downloadcontainer pb-3">
+                     <sly data-sly-resource="${@path='infinityDocLogin', resourceType='/apps/atsource/components/content/downloadcomponent/v1/downloadcomponent'}"></sly>
+                </div>
+            </sly>
+        </section>
+<sly data-sly-test="${!properties.isInfinityLogin}">
+	<div class="blue-download-doc bluebr-downloadcontainer mb-4 row">
+	  <sly data-sly-resource="${@path='downloadcomponent1', resourceType='/apps/atsource/components/content/downloadcomponent/v1/downloadcomponent'}"></sly>
+	</div>
+</sly>
+</sly>
+</sly>
+
+<!-- Impact Story OFI variant Start -->
+
+<sly data-sly-test="${properties.variation == 'type2' && userInfo.cookieValue == 'ofi' && heromodel.isImpactPage}">
+<div id="${userInfo.cookieValue == 'ofi' ? 'impact_ofi' : ''}">
+<section class="hero hero--shape-1 pb-5" id="${userInfo.cookieValue == 'ofi' ? 'impact_ofi' : ''}">
+	<div class="impact-container">
+		<a style="display:none" id="backbutton" class="text-link text-link--arrow-left button--dark-violet mt-3 font-weight-bold" href="${properties.buttonLinkURL}.html">${properties.backButtonTitle}</a>
+        <div class="hero__img">
+		  <img src="${properties.bannerImage}">
+		</div> 
+		<div class="hero__text container">		
+          <h1 class="hero__title impact-font">${properties.bannerTitlePart1 @context='html'}
+          </h1>              
+            <div class="impact_primary"> 
+              <p>${properties.preCopy @context='html'}</p>
+            </div>
+            <div class="impact_sec"> 
+             ${properties.copy @context='html'}
+            </div>
+            <a class="impact_rdmore" style="display:none;">Read more</a>
+				<div class="buttonsizing">
+					<div class="blue-download-doc bluebr-downloadcontainer">
+				       <div data-sly-resource="${@path='downloadherobanner', resourceType='/apps/atsource/components/content/downloadcomponent/v1/downloadcomponent'}" ></div>
+					 </div>
+				</div>                                  
+        </div>	 
+    </div>
+</section>
+</div>
+</sly>
+<!-- Impact Story OFI variant End -->
+
+
+</template>
+
+
+

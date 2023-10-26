@@ -1,0 +1,120 @@
+<!--
+
+  Hero Banner component.
+ 
+  This is a hero banner component for Olam Atsource
+ 
+  - Author : Adobe Systems
+
+-->
+<sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html" >
+<sly data-sly-test="${properties.variation != 'type7'}">
+<div class="stylingmargin">
+</sly>
+<sly data-sly-test="${properties.variation}">
+<sly data-sly-use.temp="variation/bannerTemplate.html">
+    <sly data-sly-test="${properties.variation == 'type1'}">
+        <sly data-sly-call="${temp.wrapper @ imgClass='hero__img', 
+                    sectionClass='hero hero--shape-home pb-4 pb-md-6', 
+                    divClass='hero__text col-xs-10 col-sm-8 col-md-7 align-self-center',
+                    preTitle=true, 
+                    headerClass='hero__title hero__title--extra-large'}"/>
+    </sly>
+    <sly data-sly-test="${properties.variation == 'type2'}">
+        <sly data-sly-call="{temp.wrapper @ imgClass='hero__img', 
+        sectionClass='hero he$ro--shape-1 pb-5', 
+        divClass='hero__text col-xs-10 col-sm-8 col-md-7 col-lg-6', 
+        headerClass='hero__title impact-font', 
+        preCopyClass='text--size-l text--color-dark-blue',
+        copyClass=true,
+        postCopyClass=true}"/>
+
+        <div id="impactStories"></div> 
+    </sly>
+    <sly data-sly-test="${properties.variation == 'type3'}">
+        <sly data-sly-call="${temp.wrapper @ imgClass='hero__img', 
+        sectionClass='hero hero--shape-2 heroBg', 
+        divClass='hero__text col-xs-10 col-sm-8 col-md-7', 
+        headerClass='hero__title', 
+        copyClass=true,
+        preCopyClass='text--size-l text--color-dark-blue',
+        postCopyClass=true}"/>
+    </sly>
+	<sly data-sly-test="${properties.variation == 'type4'}">
+        <sly data-sly-call="${temp.wrapper @ imgClass='hero__img hero__img--shape-1', 
+        sectionClass='hero hero--shape-3', 
+        divClass='hero__text col-xs-10 col-sm-8 col-md-7', 
+        headerClass='hero__title', 
+        copyClass=true,
+        preCopyClass='text--size-l font-weight-bold text--color-dark-blue mb-0',
+        postCopyClass=true}"/>
+    </sly>  
+	<sly data-sly-test="${properties.variation == 'type5'}">
+        <sly data-sly-call="${temp.wrapper @  sectionClass='hero hero--shape-4 pb-5 pb-sm-0', 
+        divClass='hero__text col-xs-12 col-sm-12 col-md-12',
+		imgClass='hero-img',
+        headerClass='hero__title', 
+        copyClass=true,
+        preCopyClass='text--size-l font-weight-bold text--color-dark-blue mb-0',
+        postCopyClass=true}"/>
+    </sly> 
+	<sly data-sly-test="${properties.variation == 'type6'}">
+        <sly data-sly-call="${temp.wrapper @ sectionClass='hero hero--shape-5', 
+        divClass='hero__text col-xs-12 col-sm-12 col-md-12', 
+		imgWrapperClass='sustainable-image-wrpper',
+		wrapperClass='herobanner-wrapper',
+        imgClass='hero-img',
+		materialWrapperClass='sustainable-meterial-wrapper',
+		materialHeaderClass='sustainable-meterial-header',
+		materialIconClass='sustainable-meterial-icons'}"/>
+    </sly> 
+    <sly data-sly-test="${properties.variation == 'type8'}">
+        <sly data-sly-call="${temp.wrapper @ sectionClass='hero hero--shape-6', 
+        divClass='row align-items-center justify-content-center h-100', 
+		sectionClass='about-infinity',
+        imgClass='infinity-img',
+		headerClass='infinity-title',
+		preCopyClass='text--size-l infinity-content1',
+		copyClass='infinity-content2'}"/>
+    </sly> 
+	<sly data-sly-test="${properties.variation == 'type7'}">
+        <sly data-sly-call="${temp.wrapper @ sectionClass='about-infinity',
+        imgClass='infinity-img',		
+        divClassContainer='infinity-section container-fluid', 
+		headerClass='infinity-title',
+		preCopyClass='text--size-l infinity-content1',
+		copyClass='infinity-content2'}"/>
+    </sly>
+
+</sly>
+<sly data-sly-test="${properties.variation != 'type7'}">
+</div>
+</sly>
+
+</sly>
+</sly>
+<sly data-sly-call="${templates.placeholder @ isEmpty = !text}"></sly>
+ 
+<sly data-sly-test="${'impact' in currentPage.path || 'news' in currentPage.path}">
+<style>
+.impact-font{
+    font-size:3.4rem !important;
+    }
+</style>
+</sly>
+<style>
+  a#backbutton
+  {
+      margin-top:55px !important;
+  }
+  .hero__text.backbtnmg
+  {
+      margin-top:10px !important;
+  }
+  .space-sustain.hero__text {
+    margin-top: 13px !important;
+	}
+	a.type6-backLink.text-link {
+	    margin-top: 53px !important;
+	}
+</style>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/coffee" mode="merge"/>
+    <filter root="/content/coffee" mode="merge"/>
+    <filter root="/content/dam/coffee" mode="merge">
+        <exclude pattern="/content/dam/coffee(/.*)?"/>
+        <include pattern="/content/dam/coffee/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/coffee/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/coffee" mode="merge"/>
+</workspaceFilter>
